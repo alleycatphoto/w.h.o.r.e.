@@ -83,7 +83,20 @@ export default function SessionControls({
           serverEvents={serverEvents}
         />
       ) : (
-        <SessionStopped startSession={startSession} />
+        <div className="flex flex-col gap-4">
+          <button
+            className="bg-black text-white border border-red-700 rounded-md p-2 hover:bg-red-700 hover:text-black"
+            onClick={startSession}
+          >
+            Start Session
+          </button>
+          <button
+            className="bg-black text-white border border-red-700 rounded-md p-2 hover:bg-red-700 hover:text-black"
+            onClick={() => console.log("Mute button clicked")}
+          >
+            Mute
+          </button>
+        </div>
       )}
     </div>
   );

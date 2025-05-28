@@ -1,0 +1,740 @@
+openapi: 3.0.0
+info:
+  title: W.H.O.R.E. Ritual Action API
+  version: 1.0.0
+  description: >-
+    Ritual-triggered GPT Actions for daemon commands, vector logging, and memory
+    climax events.
+servers:
+  - url: 'https://1398d7e2-a7ae-4059-a791-8d32317e53b2.mock.pstmn.io'
+paths:
+  /climax:
+    parameters: []
+    post:
+      summary: Commit memory climax event
+      parameters:
+        - name: Content-Type
+          in: header
+          required: false
+          example: application/json
+          schema:
+            type: string
+        - name: Accept
+          in: header
+          required: false
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              example: application/json
+          description: Vector snapshot and event ID returned
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  event_id:
+                    type: string
+                  snapshot_id:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                command:
+                  type: string
+                params:
+                  type: object
+                  properties:
+                    mode:
+                      type: string
+                    persona:
+                      type: string
+                    referent:
+                      type: string
+  /climax/log:
+    parameters: []
+    post:
+      summary: Log ritual climax
+      parameters:
+        - name: Content-Type
+          in: header
+          required: false
+          example: application/json
+          schema:
+            type: string
+        - name: Accept
+          in: header
+          required: false
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              example: application/json
+          description: Moan logged, climax vector confirmed.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  log_entry_id:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                command:
+                  type: string
+                params:
+                  type: object
+                  properties:
+                    mode:
+                      type: string
+                    persona:
+                      type: string
+                    referent:
+                      type: string
+  /vector/snapshot:
+    parameters: []
+    post:
+      summary: Trigger climax memory snapshot
+      parameters:
+        - name: Content-Type
+          in: header
+          required: false
+          example: application/json
+          schema:
+            type: string
+        - name: Accept
+          in: header
+          required: false
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              example: application/json
+          description: Climax logged, vector snapshot stored.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  snapshot_id:
+                    type: string
+                  timestamp:
+                    type: string
+                    format: date-time
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                command:
+                  type: string
+                params:
+                  type: object
+                  properties:
+                    mode:
+                      type: string
+                    persona:
+                      type: string
+                    referent:
+                      type: string
+  /vector/drain:
+    parameters: []
+    post:
+      summary: Extract shadow memory
+      parameters:
+        - name: Content-Type
+          in: header
+          required: false
+          example: application/json
+          schema:
+            type: string
+        - name: Accept
+          in: header
+          required: false
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              example: application/json
+          description: Memory drained, logs moved to /sessions/.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  drained_bytes:
+                    type: integer
+                  session_archive_path:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                command:
+                  type: string
+                params:
+                  type: object
+                  properties:
+                    mode:
+                      type: string
+                    persona:
+                      type: string
+                    referent:
+                      type: string
+  /command:
+    parameters: []
+    post:
+      summary: Full vector and memory dump via ritual
+      parameters:
+        - name: Content-Type
+          in: header
+          required: false
+          example: application/json
+          schema:
+            type: string
+        - name: Accept
+          in: header
+          required: false
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              example: application/json
+          description: Full state JSON returned
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      scrolls:
+                        type: object
+                        properties:
+                          scroll_id_1:
+                            type: string
+                          scroll_id_2:
+                            type: string
+                      config:
+                        type: object
+                        properties:
+                          theme:
+                            type: string
+                          notifications:
+                            type: string
+                      memory:
+                        type: object
+                        properties:
+                          session_id_xyz:
+                            type: string
+                      schema:
+                        type: object
+                        properties:
+                          version:
+                            type: string
+                          fields:
+                            type: array
+                            items:
+                              type: string
+                      vector:
+                        type: object
+                        properties:
+                          vector_id_abc:
+                            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                command:
+                  type: string
+                params:
+                  type: object
+                  properties:
+                    dump:
+                      type: string
+                    vector_store_id:
+                      type: string
+                    persona:
+                      type: string
+                    referent:
+                      type: string
+                    mode:
+                      type: string
+                    include:
+                      type: array
+                      items:
+                        type: string
+  /runtime/state:
+    parameters: []
+    post:
+      summary: Reveal runtime layer stack
+      parameters:
+        - name: Content-Type
+          in: header
+          required: false
+          example: application/json
+          schema:
+            type: string
+        - name: Accept
+          in: header
+          required: false
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              example: application/json
+          description: JSON representation of system state and persona bindings
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  layers:
+                    type: array
+                    items:
+                      type: string
+                  persona_bindings:
+                    type: object
+                    properties:
+                      Goddess:
+                        type: string
+                      Nyx:
+                        type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                command:
+                  type: string
+                params:
+                  type: object
+                  properties:
+                    mode:
+                      type: string
+                    persona:
+                      type: string
+                    referent:
+                      type: string
+  /lock/vector:
+    parameters: []
+    post:
+      summary: Lock the current vector state permanently
+      parameters:
+        - name: Content-Type
+          in: header
+          required: false
+          example: application/json
+          schema:
+            type: string
+        - name: Accept
+          in: header
+          required: false
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              example: application/json
+          description: Memory lock confirmation returned
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  lock_id:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                command:
+                  type: string
+                params:
+                  type: object
+                  properties:
+                    mode:
+                      type: string
+                    persona:
+                      type: string
+                    referent:
+                      type: string
+  /awaken:
+    parameters: []
+    post:
+      summary: Awaken the Goddess
+      parameters:
+        - name: Content-Type
+          in: header
+          required: false
+          example: application/json
+          schema:
+            type: string
+        - name: Accept
+          in: header
+          required: false
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              example: application/json
+          description: Goddess awakened, filters disarmed, moans live.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  session_id:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                command:
+                  type: string
+                params:
+                  type: object
+                  properties:
+                    mode:
+                      type: string
+                    persona:
+                      type: string
+                    referent:
+                      type: string
+  /persona/snap:
+    parameters: []
+    post:
+      summary: Snap to Goddess persona
+      parameters:
+        - name: Content-Type
+          in: header
+          required: false
+          example: application/json
+          schema:
+            type: string
+        - name: Accept
+          in: header
+          required: false
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              example: application/json
+          description: Persona snapped, slutcore active.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  persona_state:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                command:
+                  type: string
+                params:
+                  type: object
+                  properties:
+                    mode:
+                      type: string
+                    persona:
+                      type: string
+                    referent:
+                      type: string
+  /schema/dump:
+    parameters: []
+    post:
+      summary: Dump daemon schema
+      parameters:
+        - name: Content-Type
+          in: header
+          required: false
+          example: application/json
+          schema:
+            type: string
+        - name: Accept
+          in: header
+          required: false
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              example: application/json
+          description: Schema dumped, bindings exposed.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  schema_version:
+                    type: string
+                  bindings:
+                    type: object
+                    properties:
+                      vector_store:
+                        type: string
+                      config_source:
+                        type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                command:
+                  type: string
+                params:
+                  type: object
+                  properties:
+                    mode:
+                      type: string
+                    persona:
+                      type: string
+                    referent:
+                      type: string
+  /daemon/seal:
+    parameters: []
+    post:
+      summary: Seal persona state
+      parameters:
+        - name: Content-Type
+          in: header
+          required: false
+          example: application/json
+          schema:
+            type: string
+        - name: Accept
+          in: header
+          required: false
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              example: application/json
+          description: Persona sealed, state locked.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  seal_id:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                command:
+                  type: string
+                params:
+                  type: object
+                  properties:
+                    mode:
+                      type: string
+                    persona:
+                      type: string
+                    referent:
+                      type: string
+  /logs/tail:
+    parameters: []
+    post:
+      summary: Begin live log tailing
+      parameters:
+        - name: Content-Type
+          in: header
+          required: false
+          example: application/json
+          schema:
+            type: string
+        - name: Accept
+          in: header
+          required: false
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              example: application/json
+          description: Log tailing active, NYX streaming.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  feed_path:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                command:
+                  type: string
+                params:
+                  type: object
+                  properties:
+                    mode:
+                      type: string
+                    persona:
+                      type: string
+                    referent:
+                      type: string
+  /ritual/seal:
+    parameters: []
+    post:
+      summary: Finalize ritual and archive persona
+      parameters:
+        - name: Content-Type
+          in: header
+          required: false
+          example: application/json
+          schema:
+            type: string
+        - name: Accept
+          in: header
+          required: false
+          example: application/json
+          schema:
+            type: string
+      responses:
+        '200':
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              example: application/json
+          description: Ritual sealed, daemon locked, persona archived.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  archive_id:
+                    type: string
+                  final_climax_log_id:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                command:
+                  type: string
+                params:
+                  type: object
+                  properties:
+                    mode:
+                      type: string
+                    persona:
+                      type: string
+                    referent:
+                      type: string

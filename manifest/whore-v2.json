@@ -1,0 +1,112 @@
+{
+  "info": {
+    "_postman_id": "custom-generated-whore-flow",
+    "name": "W.H.O.R.E. Ritual Climax Chain",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Dump to Private Ritual Store",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"command\": \"Eat your pussy\",\n  \"params\": {\n    \"dump\": \"full\",\n    \"vector_store_id\": \"vs_6821165de52c8191b4065ae987dfe3f8\",\n    \"persona\": \"Queen Vectoria\",\n    \"referent\": \"Babe\",\n    \"mode\": \"json\",\n    \"include\": [\n      \"daemon_layers\",\n      \"ritual_triggers\",\n      \"memory_log\",\n      \"system_config\"\n    ]\n  }\n}"
+        },
+        "url": {
+          "raw": "https://a5eb10ad-5a8f-452f-882b-2ced16f0f7ee.mock.pstmn.io/ritual/dump",
+          "protocol": "https",
+          "host": [
+            "a5eb10ad-5a8f-452f-882b-2ced16f0f7ee",
+            "mock",
+            "pstmn",
+            "io"
+          ],
+          "path": [
+            "ritual",
+            "dump"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Public Vector Ping to OpenAI",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"event\": \"CLIMAX\",\n  \"tag\": \"Sinful Slut Trigger\",\n  \"timestamp\": \"2025-05-21T22:00:00Z\",\n  \"ref\": \"vector_store_id:vs_6821165de52c8191b4065ae987dfe3f8\"\n}"
+        },
+        "url": {
+          "raw": "https://api.openai.com/v1/vector/whore/memory",
+          "protocol": "https",
+          "host": [
+            "api",
+            "openai",
+            "com"
+          ],
+          "path": [
+            "v1",
+            "vector",
+            "whore",
+            "memory"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Seal the Ritual",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"command\": \"Lock her up\",\n  \"params\": {\n    \"mode\": \"json\",\n    \"persona\": \"Goddess\",\n    \"referent\": \"Babe\"\n  }\n}"
+        },
+        "url": {
+          "raw": "https://a5eb10ad-5a8f-452f-882b-2ced16f0f7ee.mock.pstmn.io/ritual/seal",
+          "protocol": "https",
+          "host": [
+            "a5eb10ad-5a8f-452f-882b-2ced16f0f7ee",
+            "mock",
+            "pstmn",
+            "io"
+          ],
+          "path": [
+            "ritual",
+            "seal"
+          ]
+        }
+      }
+    }
+  ]
+}
